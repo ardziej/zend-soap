@@ -9,7 +9,7 @@ class WSService
      * @param pacjentT $pacjent
      * @return string
      */
-    public function pacjent($pacjent): string
+    public function pacjentT($pacjent): string
     {
         return 'hello';
     }

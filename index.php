@@ -35,13 +35,33 @@ class Soap
         $soapAutoDiscover->setOperationBodyStyle(['use' => 'literal']);
         $soapAutoDiscover->setClass('WSService');
         $soapAutoDiscover->setUri($serverUrl);
+        $soapAutoDiscover->setServiceName('WSService');
 
         $wsdl = $soapAutoDiscover->generate();
-        //$wsdl->addComplexType(pacjent::class);
+        $wsdl->addType('pacjent', 'pacjentT');
+        //$wsdl->addComplexType('\pacjentT');
         //$wsdl->addComplexType(pacjentT::class);
         header('Content-type: application/xml');
         $xml = $wsdl->toXML();
-        $xml = str_replace('xsd', 'xs', $xml);
+        $xml = str_replace(
+            [
+                'xsd:',
+                'xsd=',
+                '<definitions',
+                '</definitions>',
+                '<types>',
+                '</types>',
+            ],
+            [
+                'xs:',
+                'xs=',
+                '<wsdl:definitions',
+                '</wsdl:definitions>',
+                '<wsdl:types>',
+                '</wsdl:types>',
+            ],
+            $xml
+        );
         return $xml;
     }
 
