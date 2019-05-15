@@ -36,7 +36,7 @@ class pacjentT
     public $plec = '';
 
     /**
-     * @var string  ___FOR_ZEND_minOccurs=0 ___FOR_ZEND_maxOccurs=1
+     * @var string  ___FOR_ZEND_minOccurs=0 ___FOR_ZEND_maxOccurs=unbounded
      */
     public $kodPocztowy;
 

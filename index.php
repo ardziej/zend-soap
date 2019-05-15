@@ -8,6 +8,7 @@ require 'vendor/autoload.php';
 require 'pacjentT.php';
 require 'kaoz.php';
 require 'WSService.php';
+require 'ComplexType.php';
 
 class Soap
 {
@@ -26,7 +27,7 @@ class Soap
     protected function generateWSDL()
     {
         $serverUrl = 'http://localhost:8000';
-        $soapAutoDiscover = new AutoDiscover(new \Zend\Soap\Wsdl\ComplexTypeStrategy\Composite());
+        $soapAutoDiscover = new AutoDiscover(new ComplexType());
         /*        $soapAutoDiscover->setClassMap([
                     pacjentT::class,
                 ]);*/
