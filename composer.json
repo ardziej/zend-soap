@@ -1,0 +1,15 @@
+{
+  "name": "ardziej/zend-soap",
+  "require": {
+    "zendframework/zend-soap": "^2.8"
+  },
+  "authors": [
+    {
+      "name": "Michal Ardziejewski",
+      "email": "adjweb@gmail.com"
+    }
+  ],
+  "scripts": {
+    "serve": "php -S localhost:8000"
+  }
+}
