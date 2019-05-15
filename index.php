@@ -39,7 +39,9 @@ class Soap
         //$wsdl->addComplexType(pacjent::class);
         //$wsdl->addComplexType(pacjentT::class);
         header('Content-type: application/xml');
-        return $wsdl->toXML();
+        $xml = $wsdl->toXML();
+        $xml = str_replace('xsd', 'xs', $xml);
+        return $xml;
     }
 
     /**
